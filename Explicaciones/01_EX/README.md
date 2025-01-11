@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 01_EX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto de uso básico de JSX y ReactDOM en el que trabajamos con la sintaxis básica de JSX, condicionales y arrays.
 
-## Available Scripts
+## Documentación Básica sobre React, JSX y ReactDOM
 
-In the project directory, you can run:
+#### ¿Qué es React?
+React es una biblioteca de JavaScript desarrollada por Facebook que se utiliza para construir interfaces de usuario de forma declarativa, eficiente y flexible. React se basa en componentes, pequeñas piezas de código que pueden combinarse para crear aplicaciones web completas.
 
-### `npm start`
+#### ¿Qué es JSX?
+JSX es una extensión de la sintaxis de JavaScript que permite escribir estructuras similares a HTML directamente en el código JavaScript. Aunque parece HTML, JSX es transformado en código JavaScript por herramientas como Babel. Este enfoque facilita la creación de interfaces al combinar lógica y diseño.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ejemplo de JSX:
+```jsx
+const elemento = <h1>¡Hola, mundo!</h1>;
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### ¿Qué es ReactDOM?
+ReactDOM es el paquete que se encarga de renderizar elementos React en el DOM (Document Object Model) del navegador. Por ejemplo, en una aplicación React, usamos `ReactDOM.createRoot()` para especificar dónde en el DOM queremos mostrar nuestros componentes React.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Introducción a JSX, Condicionales y Arreglos en React
 
-### `npm run build`
+#### 1. **Uso de JSX**
+En React, JSX es el núcleo de cómo estructuramos componentes y vistas. Algunas características importantes:
+- **Elementos JSX**: Los elementos JSX deben estar contenidos dentro de un único contenedor (por ejemplo, un `<div>`).
+- **Propiedades en JSX**:
+  - Para asignar una clase CSS, se usa `className` en lugar de `class`.
+  - Los estilos se pasan como objetos en JavaScript usando `{}`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ejemplo del código:
+```jsx
+const JSX = (
+  <div>
+    <h3>Aprendiendo JSX</h3>
+    <p>Si queremos varias líneas</p>
+    <p>Las tenemos que encerrar en un contenedor</p>
+  </div>
+);
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 2. **Uso de Condicionales**
+React permite manejar condiciones en JSX de manera sencilla, utilizando operadores como el ternario `condición ? verdadero : falso` o evaluaciones cortas con `&&`. Esto es útil para renderizar elementos basados en el estado o variables.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ejemplo del código:
+```jsx
+{
+  sesion2 === true ? 
+    <p>Variable verdadera</p> 
+  : 
+    <>
+      <p>Variable falsa</p>
+      <p>Más de una etiqueta</p> 
+      <p>Soy {nombre}</p> 
+      {nombre && <p>Soy {nombre}</p>} 
+    </> 
+}
+```
 
-### `npm run eject`
+#### 3. **Manejo de Arreglos**
+En React, es común trabajar con listas o arreglos y renderizarlos dinámicamente en el DOM usando el método `map`. Cada elemento renderizado necesita una clave única (`key`) para que React pueda manejarlo eficientemente.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Ejemplo del código:
+```jsx
+<ul>
+  {amigos.map((valor, clave) => {
+    return <li key={clave} className={clave}>{valor}</li>;
+  })}
+</ul>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+En este caso, el arreglo `amigos` contiene nombres que se renderizan como elementos `<li>` dentro de una lista `<ul>`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Descripción del Código Proporcionado
 
-## Learn More
+1. **Declaración de Variables y JSX**:
+   - Se declaran variables como `nombre`, `colorFondo` y `sesion`, que se usan dentro del JSX.
+   - Se crean estructuras JSX reutilizables como `JSX` y `contenedor`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Condicionales**:
+   - La función `verificarSesion` evalúa la variable `sesion` y retorna diferentes componentes según el valor de esta.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Renderización**:
+   - Se renderiza un saludo, información sobre el usuario, contenido condicional y una lista dinámica basada en el arreglo `amigos`.
 
-### Code Splitting
+4. **Estilos y Propiedades en JSX**:
+   - Se usan `className` y estilos en línea con objetos para aplicar estilos dinámicamente.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este código es un ejemplo claro de cómo React combina lógica y diseño para construir aplicaciones dinámicas y reactivas.
